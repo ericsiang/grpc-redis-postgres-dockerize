@@ -84,6 +84,7 @@ func main() {
 			// tags.UnaryServerInterceptor(),
 		),
 	)
+	//使用 grpcurl cli 一定要加
 	reflection.Register(server)
 	// Register User service
 	proto.RegisterUserServiceServer(server, userService)
