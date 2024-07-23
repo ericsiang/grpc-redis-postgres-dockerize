@@ -1,0 +1,25 @@
+services:
+  proto_server:
+    build: .
+    ports:
+      - "50051:50051"
+    environment:
+      - APP_PORT=50051
+      - REDIS_ADDR=proto_redis:6379
+      - REDIS_PASSWORD=123456
+      - REDIS_DB=0
+      - DB_DSN=postgres://user:123456@proto_postgres:5432/database_name?sslmode=disable
+  proto_redis:
+    image: redis:latest
+    ports:
+      - "6377:6379"
+    environment:
+      - REDIS_PASSWORD=123456
+  proto_postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=database_name
