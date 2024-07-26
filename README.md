@@ -11,6 +11,15 @@
     * go gRPC server
     * redis
     * postgreSQL
+* 連線到 postgreSQL，手動建立 users 資料表
+    ```
+    CREATE TABLE users (
+        id 		SERIAL  PRIMARY KEY ,
+        name     varchar(80)    NOT NULL,
+        email    varchar(80)      NOT NULL
+    );
+    ```
+    
 * 使用 grpcurl cli 測試 gRPC server 
   
     * 查看 gRPC server 服務清單
